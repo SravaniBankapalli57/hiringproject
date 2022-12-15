@@ -1,0 +1,316 @@
+﻿
+@using MVCHIRINGOPERATIONS
+@model USERSMODEL
+
+@{
+    ViewData["Title"] = "Adminhome";
+    Layout = "~/Views/Shared/admin_Layout.cshtml";
+}
+
+
+<html>
+<head>
+    <link href="Styles/JobStyle.css" type="text/css" rel="Stylesheet" />
+    <link href="Styles/gridstyles.css" rel="Stylesheet" type="text/css" />
+    <link href="Styles/Calendar.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="ndate/datetimepicker_css.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <style type="text/css">
+        #calendarContainerOverride table {
+            width: 0px;
+            height: 0px;
+        }
+
+            #calendarContainerOverride table tr td {
+                padding: 0;
+                margin: 0;
+            }
+
+        #success_message {
+            display: none;
+        }
+
+        section.py-5 {
+            padding: 48px 0 !important;
+        }
+    </style>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+
+</head>
+
+<body>
+    <section class="text-black">
+        <div class="container-fluid">
+            <div class="grid-container">
+                <div class="row">
+                    <div class="caption col-sm-5">
+                        <h6 class="page-title font-weight-bold">User Registration</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        @*<div id="formgrid" class="formgrid">
+        <div>
+
+        <div class="row">
+        <div class="caption col-sm-6">
+
+        <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Ticket No</label>
+        <div class="col-sm-5 inputGroupContainer">
+        <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon glyphicon-list"></i></span>
+        <input asp-for="EmailID" type="text" class="form-control" />
+        </div>
+        </div>
+        </div>
+
+
+        <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Date</label>
+        <div class="col-sm-5 inputGroupContainer">
+
+        <div class="input-group">
+        </div>
+
+
+
+
+        </div>
+        </div>
+
+
+        <div class="form-group row">
+        <label class="col-sm-2 col-form-label">DRSS No</label>
+        <div class="col-sm-5 inputGroupContainer">
+        <div class="input-group">
+        </div>
+        </div>
+        </div>
+
+        <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Rig</label>
+        <div class="col-sm-5 inputGroupContainer">
+        <div class="input-group">
+        </div>
+        </div>
+        </div>
+
+        <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Well</label>
+        <div class="col-sm-5 inputGroupContainer">
+        <div class="input-group">
+        </div>
+
+        </div>
+        </div>
+
+        <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Field</label>
+        <div class="col-sm-5 inputGroupContainer">
+        <div class="input-group">
+        </div>
+        </div>
+        </div>
+
+
+
+
+
+
+        <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Department</label>
+        <div class="col-sm-5 inputGroupContainer">
+        <div class="input-group">
+        </div>
+
+        </div>
+        </div>
+
+
+
+        <div class="form-group row">
+        <label class="col-sm-2 col-form-label">RPO No</label>
+        <div class="col-sm-5 inputGroupContainer">
+        <div class="input-group">
+        </div>
+        </div>
+        </div>
+
+        <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Job Type</label>
+        <div class="col-sm-5 inputGroupContainer">
+        <div class="input-group">
+        </div>
+        </div>
+        </div>
+
+
+        <div class="form-group row">
+        <asp:Label ID="lblother" CssClass="col-sm-2 col-form-label" runat="server" Text="Other:"></asp:Label>
+        <div class="col-sm-5 inputGroupContainer">
+        <div class="input-group">
+        </div>
+
+        </div>
+        </div>
+
+        <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Customer</label>
+        <div class="col-sm-5 inputGroupContainer">
+        <div class="input-group">
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="form-group row">
+        <div class="col-sm-6">
+
+        <div class="form-group row">
+        <label class="col-sm-2 col-form-label">&nbsp;</label>
+        <div class="col-sm-5">
+        <button type="submit" class="btn-style2 mgn-top-btn">Submit</button>
+        <button type="submit" class="btn btn-danger">Cancel</button>
+
+        </div>
+        </div>
+
+
+
+
+        </div>
+        </div>
+
+        </div>*@
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="bg-light">
+                @*<div class="card-header">
+            <div class="text-start">User Register</div>
+            </div>*@
+                <div class="card-body bg-light">
+
+                    <div class="col-md-5">
+                        <label>FirstName<span class="text-danger">*</span></label>
+                        @Html.TextBoxFor(m => m.FIRSTNAME, "", new { @class = "form-control", @placeholder = "First Name" })
+                        @Html.ValidationMessageFor(m => m.FIRSTNAME, "", new { @class = "badge badge-danger" })
+                    </div>
+
+                    <div class="col-md-5">
+
+                        <label>LastName<span class="text-danger">*</span></label>
+
+                        @Html.TextBoxFor(m => m.LASTNAME, "", new { @class = "form-control", @placeholder = "Last Name" })
+                        @Html.ValidationMessageFor(m => m.LASTNAME, "", new { @class = "badge badge-danger" })
+
+                    </div>
+                    <div class="col-md-5">
+
+                        <label>EmailID<span class="text-danger">*</span></label>
+
+                        @Html.TextBoxFor(m => m.EMAILID, "", new { @class = "form-control", @placeholder = "Email" })
+                        @Html.ValidationMessageFor(m => m.EMAILID, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div class="col-md-5">
+
+                        <label>Password<span class="text-danger">*</span></label>
+
+                        @Html.PasswordFor(m => m.PASSWORD, new { @class = "form-control", @placeholder = "Password" })
+                        @Html.ValidationMessageFor(m => m.PASSWORD, "", new { @class = "badge badge-danger" })
+                    </div>
+                    @*<div class="col-md-5">
+
+                <label>Gender<span class="text-danger">*</span></label>
+                @*<div class="col-lg-5">
+                @Html.RadioButtonFor(model => model.Gender, "male", new { id = "male-true"  })
+                @Html.Label("male-true", "Male")
+                @Html.RadioButtonFor(model => model.Gender, "Female", new { id = "female-true"})
+                @Html.Label("female-true", "Female")
+                @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "badge badge-danger" })
+                @*</div>
+                </div>*@
+                    <div class="col-md-5 mt-md-0 mt-3">
+                        <label>Gender<span class="text-danger">*</span></label>
+                        <div class="d-flex align-items-center mt-1">
+                            <label><span class="text-danger"></span></label>
+                            @Html.RadioButtonFor(model => model.GENDER, "Male", new { id = "male-true"  })
+                            @Html.Label("male-true", "Male")
+                            @Html.RadioButtonFor(model => model.GENDER, "Female", new { id = "female-true"})
+                            @Html.Label("female-true", "Female")
+                        </div>
+                    </div>
+                    @*<div class="col-md-5">
+
+                <label>DOB<span class="text-danger">*</span></label>
+
+
+                @Html.EditorFor(m => m.DOB, new { @class = "form-control", @placeholder = "Date of birth" })
+                @Html.ValidationMessageFor(m => m.DOB, "", new { @class = "badge badge-danger" })
+                </div>*@
+                    <div class="col-md-5 mt-md-0 mt-3">
+                        @*  @Html.AntiForgeryToken()*@
+                        <label>DOB <span class="text-danger">*</span></label>
+                        @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control input-md", @placeholder = "Enter DOB"} })
+                        @Html.ValidationMessageFor(model => model.DOB,"", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-md-5">
+
+                        <label>Role<span class="text-danger">*</span></label>
+
+                        @Html.DropDownListFor(model => model.ROLE, new List<SelectListItem> {
+                    new SelectListItem { Text="--select--",Value="0"},
+                    new SelectListItem { Text="CEO",Value="CEO"},
+                    new SelectListItem { Text="Manager",Value="Manager"},
+                    new SelectListItem { Text="Trainer",Value="Trainer"},
+                    new SelectListItem { Text="CoOrdinator",Value="CoOrdinator"},
+                    new SelectListItem { Text="Interviewer",Value="Interviewer"}
+
+                    }, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.ROLE, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div class="col-md-5">
+
+                        <label>Status<span class="text-danger">*</span></label>
+
+                        @Html.DropDownListFor(model => model.STATUS, new List<SelectListItem> {
+                    new SelectListItem { Text="--select--",Value="0"},
+                    new SelectListItem { Text="Active",Value="Active"},
+                    new SelectListItem { Text="InActive",Value="InActive"}
+                    }, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.STATUS, "", new { @class = "badge badge-danger" })
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">&nbsp;</label>
+                                <div class="col-sm-5">
+                                    <button type="submit" class="btn-style2 mgn-top-btn" onclick="return confirm('Added successfully')">Submit</button>
+                                    <button type="submit" class="btn btn-danger">Cancel</button>
+
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @ViewBag.Message
+        }
+    </section>
+    <!-- End -->
+
+
+</body>
+</html>

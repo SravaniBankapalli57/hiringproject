@@ -1,0 +1,65 @@
+﻿@using MVCHIRINGOPERATIONS
+@model OtpModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VerifyOtp</title>
+    <meta charset="utf-8">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-gap"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="text-center">
+                                <div style="border:solid;border-block-color:green">
+                                    <h3 class="text-center" style="color:green">VERIFY OTP</h3>
+
+                                    <div class="panel-body" id="register-form" role="form" autocomplete="off" class="form" method="post">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 col-form-label">EmailID</label>
+                                            <div class="form-group">
+                                                <span class="form-group-addon" style="background-color:green">@*<i class="glyphicon glyphicon-envelope color-blue"></i>*@</span>
+                                                @Html.TextBoxFor(model=> model.Otp,new{@class="form-control",placeholder="Enter OTP",name="otp"})
+
+                                            </div>
+                                            @Html.ValidationMessageFor(model=> model.Otp,"",new{@class="text-danger"})
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="btn btn-success" value="Submit" type="submit" style="background-color:green">
+
+                                        </div>
+
+                                        @*<input type="hidden" class="hide" name="token" id="token" value="">*@
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>

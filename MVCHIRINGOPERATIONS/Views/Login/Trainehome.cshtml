@@ -1,0 +1,363 @@
+﻿@using MVCHIRINGOPERATIONS.Models
+@model STUDENTMODEL
+@{
+    ViewData["Title"] = "Trainehome";
+    Layout = "~/Views/Shared/trainee_Layout.cshtml";
+}
+
+<html>
+<head>
+    <link href="Styles/JobStyle.css" type="text/css" rel="Stylesheet" />
+    <link href="Styles/gridstyles.css" rel="Stylesheet" type="text/css" />
+    <link href="Styles/Calendar.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="ndate/datetimepicker_css.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <style type="text/css">
+        #calendarContainerOverride table {
+            width: 0px;
+            height: 0px;
+        }
+
+            #calendarContainerOverride table tr td {
+                padding: 0;
+                margin: 0;
+            }
+
+        #success_message {
+            display: none;
+        }
+
+        section.py-5 {
+            padding: 48px 0 !important;
+        }
+    </style>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+
+</head>
+
+<body>
+    <section class="text-black">
+        <div class="container-fluid">
+            <div class="grid-container">
+                <div class="row">
+                    <div class="caption col-sm-5">
+                        <h6 class="page-title font-weight-bold">Student Registration</h6>
+                    </div>
+                </div>
+                <hr />
+                @*<div id="formgrid" class="formgrid">
+                <div>
+                <div class="row">
+                <div class="caption col-sm-6">
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Ticket No</label>
+                <div class="col-sm-5 inputGroupContainer">
+                <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon glyphicon-list"></i></span>
+                <input asp-for="EmailID" type="text" class="form-control" />
+                </div>
+                </div>
+                </div>
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Date</label>
+                <div class="col-sm-5 inputGroupContainer">
+                <div class="input-group">
+                </div>
+                </div>
+                </div>
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label">DRSS No</label>
+                <div class="col-sm-5 inputGroupContainer">
+                <div class="input-group">
+                </div>
+                </div>
+                </div>
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Rig</label>
+                <div class="col-sm-5 inputGroupContainer">
+                <div class="input-group">
+                </div>
+                </div>
+                </div>
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Well</label>
+                <div class="col-sm-5 inputGroupContainer">
+                <div class="input-group">
+                </div>
+                </div>
+                </div>
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Field</label>
+                <div class="col-sm-5 inputGroupContainer">
+                <div class="input-group">
+                </div>
+                </div>
+                </div>
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Department</label>
+                <div class="col-sm-5 inputGroupContainer">
+                <div class="input-group">
+                </div>
+                </div>
+                </div>
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label">RPO No</label>
+                <div class="col-sm-5 inputGroupContainer">
+                <div class="input-group">
+                </div>
+                </div>
+                </div>
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Job Type</label>
+                <div class="col-sm-5 inputGroupContainer">
+                <div class="input-group">
+                </div>
+                </div>
+                </div>
+                <div class="form-group row">
+                <asp:Label ID="lblother" CssClass="col-sm-2 col-form-label" runat="server" Text="Other:"></asp:Label>
+                <div class="col-sm-5 inputGroupContainer">
+                <div class="input-group">
+                </div>
+                </div>
+                </div>
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Customer</label>
+                <div class="col-sm-5 inputGroupContainer">
+                <div class="input-group">
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                <div class="form-group row">
+                <div class="col-sm-6">
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label">&nbsp;</label>
+                <div class="col-sm-5">
+                <button type="submit" class="btn-style2 mgn-top-btn">Submit</button>
+                <button type="submit" class="btn btn-danger">Cancel</button>
+                </div>
+                </div>
+                </div>
+                </div>
+
+                </div>*@
+                @using (Html.BeginForm("Trainehome", "Login", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div>
+                        <p><label><h4><u>Student Generic Info</u></h4></label></p>
+                        <div class="row" style="border:hidden;background-color:transparent">
+                            <div class="col-md-6 mt-md-0 mt-3">
+                                @Html.AntiForgeryToken()
+                                <label>HallTicketNo<span class="text-danger">*</span></label>
+                                @Html.TextBoxFor(model => model.Hall_ticket_no, new { @class = "form-control", placeholder="Enter Hallticket No" })
+                                @Html.ValidationMessageFor(model => model.Hall_ticket_no,"", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-6 mt-md-0 mt-3">
+                                @Html.AntiForgeryToken()
+                                <label>StudentName<span class="text-danger">*</span></label>
+                                @Html.TextBoxFor(model => model.Name_of_the_student, new { @class = "form-control", placeholder="Enter StudentName" })
+                                @Html.ValidationMessageFor(model => model.Name_of_the_student,"", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-6 mt-md-0 mt-3">
+                                @Html.AntiForgeryToken()
+                                <label>EmailID<span class="text-danger">*</span></label>
+                                @Html.TextBoxFor(model => model.Emailid, new { @class = "form-control", placeholder="Enter Emailid" })
+                                @Html.ValidationMessageFor(model => model.Emailid,"", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="col-md-6 mt-md-0 mt-3">
+                                @Html.AntiForgeryToken()
+                                <label>DateOfBirth <span class="text-danger">*</span></label>
+                                @Html.EditorFor(model => model.Dob, new { htmlAttributes = new { @class = "form-control input-md", @placeholder = "Enter DOB"} })
+                                @Html.ValidationMessageFor(model => model.Dob,"", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-6 mt-md-0 mt-3">
+                                <label>Gender<span class="text-danger">*</span></label>
+                                <div class="d-flex align-items-center mt-1">
+                                    <label><span class="text-danger"></span></label>
+                                    @Html.RadioButtonFor(model => model.Gender, "Male", new { id = "male-true"  })
+                                    @Html.Label("male-true", "Male")
+                                    @Html.RadioButtonFor(model => model.Gender, "Female", new { id = "female-true"})
+                                    @Html.Label("female-true", "Female")
+                                </div>
+                            </div>
+                            <div class="col-md-6 mt-md-0 mt-3">
+                                @Html.AntiForgeryToken()
+                                <label>StudentPhNo <span class="text-danger">*</span></label>
+                                @Html.TextBoxFor(model => model.PH_No, new { @class = "form-control", placeholder="Enter mobileNo" })
+                                @Html.ValidationMessageFor(model => model.PH_No,"", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-6 mt-md-0 mt-3">
+                                @Html.AntiForgeryToken()
+                                <label> AadhaarNo <span class="text-danger">*</span></label>
+                                @Html.TextBoxFor(model => model.Aadhar_no, new { @class = "form-control", placeholder="Enter Aadhaar No" })
+                                @Html.ValidationMessageFor(model => model.Aadhar_no,"", new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+                    </div>
+                    <p><label><h4><u>Education Details</u></h4></label></p>
+                    <div class="row" style="border:hidden;background-color:transparent">
+                        <div class="col-md-6 mt-md-0 mt-3">
+                            @*<p><label><h5><u>Schooling</u></h5></label></p>
+                        <div class="row">*@
+                            @Html.AntiForgeryToken()
+                            <label>SchoolName <span class="text-danger">*</span></label>
+                            @Html.TextBoxFor(model => model.School_Name, new { @class = "form-control", placeholder="Enter SchoolName" })
+                            @Html.ValidationMessageFor(model => model.School_Name,"", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-6 mt-md-0 mt-3">
+                            @Html.AntiForgeryToken()
+                            <label> SSC YOP <span class="text-danger">*</span></label>
+                            @Html.TextBoxFor(model => model.ssc_Year_of_Pass_out, new { @class = "form-control", placeholder="Enter SSC Passout Year" })
+                            @Html.ValidationMessageFor(model => model.ssc_Year_of_Pass_out,"", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-6 mt-md-0 mt-3">
+                            @Html.AntiForgeryToken()
+                            <label> SSC Aggregate<span class="text-danger">*</span></label>
+                            @Html.TextBoxFor(model => model.Ssc_Aggregate, new { @class = "form-control", placeholder="Enter SSC Aggregate" })
+                            @Html.ValidationMessageFor(model => model.Ssc_Aggregate,"", new { @class = "text-danger" })
+                        </div>
+                        </div>
+                        <div class="col-md-6 mt-md-0 mt-3">
+                            <p><label><h5><u>Intermediate</u></h5></label></p>
+                        <div class="row">
+                           @Html.AntiForgeryToken()
+                           <label>InterCollegeName<span class="text-danger">*</span></label>
+                           @Html.TextBoxFor(model => model.Junior_College_Name, new { @class = "form-control", placeholder="Enter InterCollegeName" })
+                           @Html.ValidationMessageFor(model => model.Junior_College_Name,"", new { @class = "text-danger" })
+                        </div>   
+                        </div>
+                        <div class="col-md-6 mt-md-0 mt-3">
+                            @Html.AntiForgeryToken()
+                            <label> Intermediate YOP<span class="text-danger">*</span></label>
+                            @Html.TextBoxFor(model => model.inter_Year_of_Pass_out, new { @class = "form-control", placeholder="Enter Inter Passout year" })
+                            @Html.ValidationMessageFor(model => model.inter_Year_of_Pass_out,"", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-6 mt-md-0 mt-3">
+                            @Html.AntiForgeryToken()
+                            <label> Intermediate Aggregate<span class="text-danger">*</span></label>
+                            @Html.TextBoxFor(model => model.inter_Aggregate, new { @class = "form-control", placeholder="Enter Inter Aggregate" })
+                            @Html.ValidationMessageFor(model => model.inter_Aggregate,"", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-6 mt-md-0 mt-3">
+                            <p><label><h5><u>Graduation</u></h5></label></p>
+                            @Html.AntiForgeryToken()
+                            <label>EngCollegeName<span class="text-danger">*</span></label>
+                            @Html.TextBoxFor(model => model.Engineering_College_Name, new { @class = "form-control", placeholder="Enter EngCollegeName" })
+                            @Html.ValidationMessageFor(model => model.Engineering_College_Name,"", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-6 mt-md-0 mt-3">
+                            <label>Branch<span class="text-danger">*</span></label>
+                            @Html.DropDownListFor(model => model.Branch, new List<SelectListItem>
+                        {
+                        new SelectListItem { Text="--select--",Value="--select--"},
+                        new SelectListItem { Text="CSE",Value="CSE"},
+                        new SelectListItem { Text="MECH",Value="MECH"},
+                        new SelectListItem { Text="ECE",Value="ECE"},
+                        new SelectListItem { Text="EEE",Value="EEE"},
+                        new SelectListItem { Text="CIVIL",Value="CIVIL"},
+                        new SelectListItem { Text="IT",Value="IT"},
+                        },
+                        new
+                        {
+                        @class = "form-control"
+                        })
+                        </div>
+                        <div class="col-md-6 mt-md-0 mt-3">
+                            @Html.AntiForgeryToken()
+                            <label> Engineering YOP <span class="text-danger">*</span></label>
+                            @Html.TextBoxFor(model => model.Btech_Year_of_Pass_out, new { @class = "form-control", placeholder="Enter Engineering passout year" })
+                            @Html.ValidationMessageFor(model => model.Btech_Year_of_Pass_out,"", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-6 mt-md-0 mt-3">
+                            @Html.AntiForgeryToken()
+                            <label>Total Backlogs<span class="text-danger">*</span></label>
+                            @Html.TextBoxFor(model => model.Total_backlogs, new { @class = "form-control", placeholder="Enter Backlogs" })
+                            @Html.ValidationMessageFor(model => model.Total_backlogs,"", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="col-md-6 mt-md-0 mt-3">
+                            @Html.AntiForgeryToken()
+                            <label> Graduation Aggregate<span class="text-danger">*</span></label>
+                            @Html.TextBoxFor(model => model.Graduation_Aggregate, new { @class = "form-control", placeholder="Enter Graduation aggregate" })
+                            @Html.ValidationMessageFor(model => model.Graduation_Aggregate,"", new { @class = "text-danger" })
+                        </div>
+                    
+                    <p><label><h4><u>Family Details</u></h4></label></p>
+                    <div class="row" style="border:hidden;background-color:transparent">
+                        <div class="col-md-6 mt-md-0 mt-3">
+                            @Html.AntiForgeryToken()
+                            <label>Father's Name<span class="text-danger">*</span></label>
+                            @Html.TextBoxFor(model => model.Fathers_name, new { @class = "form-control", placeholder="Enter Fathers's name" })
+                            @Html.ValidationMessageFor(model => model.Fathers_name,"", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-6 mt-md-0 mt-3">
+                            @Html.AntiForgeryToken()
+                            <label> Father's Occupation <span class="text-danger">*</span></label>
+                            @Html.TextBoxFor(model => model.Fathers_occupation, new { @class = "form-control", placeholder="Enter Father's Occupation" })
+                            @Html.ValidationMessageFor(model => model.Fathers_occupation,"", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-6 mt-md-0 mt-3">
+                            @Html.AntiForgeryToken()
+                            <label>Permanent Address  <span class="text-danger">*</span></label>
+                            @Html.TextBoxFor(model => model.Permanent_address, new { @class = "form-control", placeholder="Enter Permanent Address" })
+                            @Html.ValidationMessageFor(model => model.Permanent_address,"", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-6 mt-md-0 mt-3">
+                            @Html.AntiForgeryToken()
+                            <label>Present Address <span class="text-danger">*</span></label>
+                            @Html.TextBoxFor(model => model.Present_address, new { @class = "form-control", placeholder="Enter Present Address" })
+                            @Html.ValidationMessageFor(model => model.Present_address,"", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-6 mt-md-0 mt-3">
+                            @Html.AntiForgeryToken()
+                            <label> Father's MobileNo<span class="text-danger">*</span></label>
+                            @Html.TextBoxFor(model => model.Fathers_Mobile_No, new { @class = "form-control", placeholder="Enter Father's Mobile NO" })
+                            @Html.ValidationMessageFor(model => model.Fathers_Mobile_No,"", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="col-md-6 mt-md-0 mt-3">
+                            @Html.AntiForgeryToken()
+                            <label> Mother's Name <span class="text-danger">*</span></label>
+                            @Html.TextBoxFor(model => model.Mothers_Name, new { @class = "form-control", placeholder="Enter Mother's Name" })
+                            @Html.ValidationMessageFor(model => model.Mothers_Name,"", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-6 mt-md-0 mt-3">
+                            @Html.AntiForgeryToken()
+                            <label>Mother's Occupation <span class="text-danger">*</span></label>
+                            @Html.TextBoxFor(model => model.Mothers_Occupation, new { @class = "form-control", placeholder="Enter Mother's Occupation" })
+                            @Html.ValidationMessageFor(model => model.Mothers_Occupation,"", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <p><label><h4><u>Upload Resume</u></h4></label></p>
+                    <div class="row" style="border:hidden;background-color:transparent">
+                        <div>
+                            <span>Select File:</span>
+                            <input type="file" name="PostedFiles" multiple />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">&nbsp;</label>
+                                <div class="col-sm-5">
+                                    <button type="submit" class="btn-style2 mgn-top-btn">Submit</button>
+                                    <button type="submit" class="btn btn-danger">Cancel</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>                   
+                }
+    </section>
+    <!-- End -->
+</body>
+</html>
+
+

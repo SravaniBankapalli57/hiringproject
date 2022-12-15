@@ -1,0 +1,849 @@
+
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ FONT ]*/
+
+@font-face {
+    font-family: Poppins-Regular;
+    src: url('../fonts/poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: Poppins-Medium;
+    src: url('../fonts/poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+    font-family: Poppins-Bold;
+    src: url('../fonts/poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+    font-family: Poppins-SemiBold;
+    src: url('../fonts/poppins/Poppins-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: Montserrat-Bold;
+    src: url('../fonts/montserrat/Montserrat-Bold.ttf');
+}
+
+@font-face {
+    font-family: Montserrat-SemiBold;
+    src: url('../fonts/montserrat/Montserrat-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: Montserrat-Regular;
+    src: url('../fonts/montserrat/Montserrat-Regular.ttf');
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ RESTYLE TAG ]*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Poppins-Regular, sans-serif;
+}
+
+/*---------------------------------------------*/
+a {
+    font-family: Poppins-Regular;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #666666;
+    margin: 0px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+}
+
+    a:focus {
+        outline: none !important;
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: #6675df;
+    }
+
+/*---------------------------------------------*/
+h1, h2, h3, h4, h5, h6 {
+    margin: 0px;
+}
+
+p {
+    font-family: Poppins-Regular;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #666666;
+    margin: 0px;
+    font-weight: bold;
+    text-align: center;
+}
+
+ul, li {
+    margin: 0px;
+    list-style-type: none;
+}
+
+
+/*---------------------------------------------*/
+input {
+    outline: none;
+    border: none;
+}
+
+textarea {
+    outline: none;
+    border: none;
+}
+
+    textarea:focus, input:focus {
+    }
+
+        input:focus::-webkit-input-placeholder {
+            color: transparent;
+        }
+
+        input:focus:-moz-placeholder {
+            color: transparent;
+        }
+
+        input:focus::-moz-placeholder {
+            color: transparent;
+        }
+
+        input:focus:-ms-input-placeholder {
+            color: transparent;
+        }
+
+        textarea:focus::-webkit-input-placeholder {
+            color: transparent;
+        }
+
+        textarea:focus:-moz-placeholder {
+            color: transparent;
+        }
+
+        textarea:focus::-moz-placeholder {
+            color: transparent;
+        }
+
+        textarea:focus:-ms-input-placeholder {
+            color: transparent;
+        }
+
+input::-webkit-input-placeholder {
+    color: #999999;
+}
+
+input:-moz-placeholder {
+    color: #999999;
+}
+
+input::-moz-placeholder {
+    color: #999999;
+}
+
+input:-ms-input-placeholder {
+    color: #999999;
+}
+
+textarea::-webkit-input-placeholder {
+    color: #999999;
+}
+
+textarea:-moz-placeholder {
+    color: #999999;
+}
+
+textarea::-moz-placeholder {
+    color: #999999;
+}
+
+textarea:-ms-input-placeholder {
+    color: #999999;
+}
+
+
+label {
+    display: block;
+    margin: 0;
+}
+
+/*---------------------------------------------*/
+button {
+    outline: none !important;
+    border: none;
+    background: transparent;
+}
+
+    button:hover {
+        cursor: pointer;
+    }
+
+iframe {
+    border: none !important;
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ utility ]*/
+
+/*==================================================================
+[ Text ]*/
+.txt1 {
+    font-family: Montserrat-Regular;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #555555;
+}
+
+.txt2 {
+    font-family: Montserrat-Regular;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #999999;
+}
+
+
+/*==================================================================
+[ Size ]*/
+.size1 {
+    width: 355px;
+    max-width: 100%;
+}
+
+.size2 {
+    width: calc(100% - 43px);
+}
+
+/*==================================================================
+[ Background ]*/
+.bg1 {
+    background: #3b5998;
+}
+
+.bg2 {
+    background: #1da1f2;
+}
+
+.bg3 {
+    background: #cd201f;
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ login ]*/
+.limiter {
+    width: 100%;
+    margin: 0 auto;
+
+}
+
+.container-login100 {
+    width: 100%;
+    background: #f2f2f2;
+}
+
+
+.wrap-login100 {
+    width: 100%;
+    background: #fff;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    flex-direction: row-reverse;
+}
+
+/*==================================================================
+[ login more ]*/
+.login100-more {
+    width: 40%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+    background: #024100;
+    color: #FFF;
+}
+
+    .login100-more::before {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,0.1);
+    }
+
+.leftBox h3 {
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    text-align: center;
+}
+
+.login100-more .left-heads-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 396px;
+}
+
+    .login100-more .left-heads-container h1 {
+        font-weight: bold;
+    }
+
+
+
+
+/*==================================================================
+[ Form ]*/
+
+
+
+.login100-form-title {
+    display: block;
+    font-family: Poppins-Regular;
+    font-size: 30px;
+    color: #333333;
+    line-height: 1.2;
+    text-align: center;
+}
+
+    .login100-form-title h1 {
+        text-align: left;
+        color: #024100;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .login100-form-title h2 {
+        text-align: left;
+        color: #024100;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .login100-form-title h3 {
+        text-align: left;
+        color: #024100;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .login100-form-title h4 {
+        text-align: left;
+        color: #024100;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .login100-form-title h5 {
+        text-align: left;
+        color: #024100;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .login100-form-title h6 {
+        text-align: left;
+        color: #024100;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .login100-form-title img{
+        width:120px;
+    }
+
+    .login100-form-title p {
+        text-align: left;
+        font-size: 13px;
+        font-family: Arial;
+         text-align: justify;
+         margin-bottom:20px;
+    }
+
+
+
+/*------------------------------------------------------------------
+[ Input ]*/
+
+.input-container {
+    border: 4px solid #024100;
+    padding: 15px;
+    border-radius: 7px;
+}
+
+.input-containerwithoutColour {
+    border: 4px none white;
+    padding: 0px;
+    border-radius: 2px;
+}
+
+.input-container div.wrap-input100 {
+    margin-bottom: 16px;
+}
+
+    .input-container div.wrap-input100:last-child {
+        margin-bottom: 0px;
+    }
+
+.wrap-input100 label {
+    font-weight: bold;
+    font-size: 13px;
+    color: #373435;
+}
+
+.label-input100 {
+    font-family: Montserrat-Regular;
+    font-size: 18px;
+    color: #999999;
+    line-height: 1.2;
+    display: block;
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+    padding-left: 24px;
+    left: 0;
+    top: 30px;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.input100 {
+    display: block;
+    width:100%;
+    background: transparent;
+    font-family: Montserrat-Regular;
+    font-size: 13px;
+    color: #555555;
+    line-height: 1.2;
+    padding: 0 26px 0 10px;
+
+}
+
+.input90 {
+    display: block;
+    width: 100%;
+    background: transparent;
+    font-family: Montserrat-Regular;
+    font-size: 13px;
+    color: #555555;
+    line-height: 1.2;
+    padding: 0 26px 0 11px;
+}
+
+.leftBox {
+    width: 20%;
+    float: left;
+    height: 100vh;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center!important;
+    justify-content: center!important;
+    -ms-flex-align: center!important;
+    align-items: center!important;
+    align-items: center;
+    background: #024100;
+    color: #FFF;
+    position: relative;
+}
+
+    .leftBox .left-heads-container {
+        position: absolute;
+        top: 50%;
+        left: 60%;
+        transform: translate(-50%,-50%);
+        width: 396px;
+    }
+
+        .leftBox .left-heads-container h1 {
+            font-weight: bold;
+            padding: 0 10px;
+        }
+
+        .leftBox .left-heads-container h2 {
+            padding: 0 10px;
+        }
+
+.RightBox {
+    width: 80%;
+    height: 100vh;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center!important;
+    justify-content: center!important;
+    -ms-flex-align: center!important;
+    align-items: center!important;
+    background-color: white;
+    position:relative;
+}
+
+    .RightBox > .RightBoxInner {
+        width: 100%;
+        padding: 0 10px;
+        margin: 0 auto;
+    }
+
+input.input100 {
+    height: 33px;
+    border: 1px solid #e6e6e6;
+    border-radius: 24px;
+    /*
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;*/
+}
+
+/*---------------------------------------------*/
+
+.focus-input100 {
+    position: absolute;
+    display: block;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    top: -1px;
+    left: -1px;
+    pointer-events: none;
+    border: 1px solid #6675df;
+    border-radius: 10px;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    -webkit-transform: scaleX(1.1) scaleY(1.3);
+    -moz-transform: scaleX(1.1) scaleY(1.3);
+    -ms-transform: scaleX(1.1) scaleY(1.3);
+    -o-transform: scaleX(1.1) scaleY(1.3);
+    transform: scaleX(1.1) scaleY(1.3);
+}
+
+.input100:focus + .focus-input100 {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+}
+
+.eff-focus-selection {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+}
+
+.input100:focus {
+}
+
+    .input100:focus + .focus-input100 + .label-input100 {
+        top: 14px;
+        font-size: 13px;
+    }
+
+.has-val {
+    /*height: 48px !important; */
+}
+
+    .has-val + .focus-input100 + .label-input100 {
+        top: 14px;
+        font-size: 13px;
+    }
+
+
+.frmForgetPassword {
+    /*margin-top: 20px;*/
+}
+.frmForgetPassword .frmfrgpwdlbl{
+    display: block;
+}
+.frmForgetPassword .input100{
+    float: left;
+    width: 265px;
+    border-radius: 5px;
+}
+.frmForgetPassword .login100-form-btn{
+    float: right;
+    height: 33px;
+    width: 150px;
+}
+#BtnForgetPassword {
+    display: inline-block;
+    margin-top: 0px;
+    position: relative;
+    top: 0px;
+}
+
+.frmfrgRow .frmfrgRowlft {
+    display: inline-block;
+}
+
+    .frmfrgRow .frmfrgRowlft input {
+        height: 33px;
+        border: 1px solid #e6e6e6;
+        border-radius: 24px;
+        font-family: Montserrat-Regular;
+        font-size: 13px;
+        color: #555555;
+        line-height: 1.2;
+        padding: 0 26px 0 11px;
+    }
+
+/*==================================================================
+[ Restyle Checkbox ]*/
+
+.input-checkbox100 {
+    display: none;
+}
+
+.label-checkbox100 {
+    font-family: Poppins-Regular;
+    font-size: 13px;
+    color: #999999;
+    line-height: 1.4;
+    display: block;
+    position: relative;
+    padding-left: 26px;
+    cursor: pointer;
+}
+
+    .label-checkbox100::before {
+        content: "\f00c";
+        font-family: FontAwesome;
+        font-size: 13px;
+        color: transparent;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        border-radius: 2px;
+        background: #fff;
+        border: 1px solid #6675df;
+        left: 0;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+.input-checkbox100:checked + .label-checkbox100::before {
+    color: #6675df;
+}
+
+
+/*------------------------------------------------------------------
+[ Button ]*/
+.container-login100-form-btn {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.login100-form-btn {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px 15px 1px 17px;
+    width: 100%;
+    height: 26px;
+    border-radius: 5px;
+    background: #024100;
+    font-family: Montserrat-Bold;
+    font-size: 13px;
+    color: #fff;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+    .login100-form-btn:hover {
+        background: #333333;
+    }
+
+
+
+/*------------------------------------------------------------------
+[ Responsive ]*/
+
+@media screen and (max-width: 1600px) {
+  .RightBox {
+      width: 70%;
+  }
+  .leftBox {
+      width: 30%;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .RightBox {
+      width: 65%;
+  }
+  .leftBox {
+      width: 35%;
+  }
+}
+@media screen and (max-width: 980px) {
+  .RightBox {
+      width: 100%;
+  }
+  .leftBox {
+      display: none;
+  }
+}
+
+
+@media (min-width:600px) {
+
+    .RightBox > .RightBoxInner {
+        width: 450px;
+    }
+
+    .login100-form-title img{
+        width:auto;
+    }
+
+}
+
+
+
+
+
+/*==================================================================
+[ Social ]*/
+.login100-form-social-item {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.login100-form-social-item:hover {
+   background: #333333;
+   color: #fff;
+}
+
+
+/**Footer**/
+#footer {
+    margin: 0 auto;
+    width: 100%;
+    position:absolute;
+    bottom:5px;
+}
+
+.footer-container {
+    /*
+    margin: 0 auto;
+    width: 100%;
+    height: 91px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: #ccc url(../images/footer-bdy-bg.jpg) repeat-x left top;
+    */
+}
+
+#footer-left {
+    float: left;
+    width: 13px;
+    height: 28px;
+    background: url(../images/footer-left.jpg) no-repeat right top;
+}
+
+#footer-right {
+    float: right;
+    width: 15px;
+    height: 28px;
+    background: url(../images/footer-right.jpg) repeat left top;
+}
+
+#footer-top {
+    float: left;
+    width: 961px;
+    height: 28px;
+    background: url(../images/footer-top.jpg) repeat left top;
+}
+
+#footer-copyright {
+    /*
+    margin: 0 auto;
+    max-width: 961px;
+    background: url(../images/footer-bdy-bg.jpg) repeat-x left top;
+        */
+}
+
+#footer-icons {
+    margin: 0px auto;
+}
+
+p#copyright {
+    padding: 30px 0 0 0;
+    font-size: 11px;
+    font-weight: normal;
+    color: #000;
+    text-align: left;
+}
+
+    p#copyright a {
+        color: #000;
+    }
+
+        p#copyright a:hover {
+            color: #A1A1A1;
+        }
+/**Footer  End **/
