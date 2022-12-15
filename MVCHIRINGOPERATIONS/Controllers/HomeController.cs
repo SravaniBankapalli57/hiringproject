@@ -36,5 +36,9 @@ namespace MVCHIRINGOPERATIONS.Controllers
         {
             return View();
         }
+        public IActionResult mul()
+        {
+            return View();
+        }
     }
 }
