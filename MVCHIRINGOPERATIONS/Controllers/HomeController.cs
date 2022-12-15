@@ -32,5 +32,9 @@ namespace MVCHIRINGOPERATIONS.Controllers
         {
             return View();
         }
+        public IActionResult sub()
+        {
+            return View();
+        }
     }
 }
